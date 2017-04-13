@@ -13,8 +13,59 @@
 //  Common
 //  _____________________________________________
 
-& when (@media-common = true) {
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
 
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY,
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: .75s;
+}
+
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.bounceInDown {
+  animation-name: bounceInDown;
+}
+
+& when (@media-common = true) {
     .panel.header {
         .links,
         .switcher {
@@ -307,6 +358,46 @@
         .links,
         .switcher {
             display: inline-block;
+        }
+    }
+
+    .navigation {
+        .parent {
+            .level-top {
+
+                &:after {
+                    content: "\e607";
+                    font-family: "icons";
+                    font-size: 8px;
+                    display: inline-block;
+                    padding: 0 0 0 2px;
+                }
+            }
+        }
+
+        .level0 {
+            &:hover {
+                border-bottom: 1px solid black;
+            }
+
+            .submenu {
+                animation-duration: 1s;
+                animation-fill-mode: both;
+                animation-duration: .75s;
+                animation-name: bounceInDown;
+                border: 0;
+                font-weight: normal;
+                li.parent > a:after {
+                    content: "\e607";
+                    font-family: "icons";
+                    display: inline-block;
+                    float: right;
+                    transform: rotate(270deg);
+                    font-size: 10px;
+                    margin-top: 4px;
+                
+                }
+            }
         }
     }
 }

@@ -8,6 +8,5 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <css href="https://fonts.googleapis.com/css?family=Montserrat" src_type="url" />
-        <css href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" src_type="url" />
     </head>
 </page>

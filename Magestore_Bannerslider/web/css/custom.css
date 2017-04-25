@@ -1,0 +1,31 @@
+.magestore-bannerslider-standard {
+	position: absolute;
+	overflow: hidden;
+	height: 100vh;
+	width: 100%;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+}
+
+.flex-control-paging li a {
+	background: white;
+	border: 1px solid white;
+	box-shadow: none;
+}
+
+.flex-control-paging li a.flex-active {
+	background: transparent;
+	border: 1px solid white;
+}
+
+.flex-control-nav {
+    position: absolute;
+    top: 90vh;
+    z-index: 10;
+}
+
+.flex-direction-nav a {
+	margin: 0;
+	top: 50vh;
+}

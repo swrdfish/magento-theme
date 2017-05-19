@@ -7,6 +7,17 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
+		<!-- Remove built in css -->
+        <remove src="css/styles-m.css" />
+        <remove src="css/styles-l.css" />
+
+		<!-- Remove built in js -->
+        <remove src="theme.js" />
+        <remove src="responsive.js" />
+        <remove src="navigation-menu.js" />
+
+        <!-- Add custom css -->
         <css href="https://fonts.googleapis.com/css?family=Montserrat" src_type="url" />
+        <css src="css/build/aadikara.min.css" />
     </head>
 </page>

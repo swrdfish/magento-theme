@@ -309,8 +309,12 @@ p {
 }
 
 .navigation-overlay.sticky .navbar-nav > li > a,
-.navigation-overlay.sticky .menu-socials li > a {
+.navigation-overlay.sticky .menu-socials li a {
   line-height: 60px;
+}
+
+.navigation-overlay.sticky .counter {
+  line-height: 45px;
 }
 
 .navbar-header {
@@ -337,12 +341,12 @@ p {
   display: inline-block;
 }
 
-.menu-socials li > a {
-  font-size: 16px;
-  line-height: 90px;
+.menu-socials li a {
+  font-size: 14px;
+  line-height: 80px;
   margin-left: 22px;
   color: #fff;
-  border-bottom: 1px solid #fff;
+  opacity: 0.7;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -350,9 +354,33 @@ p {
   transition: all 0.3s ease-in-out;
 }
 
-.menu-socials li > a:hover {
-  border-color: #bfa67a;
+
+.menu-socials li a:hover {
+  opacity: 1;
 }
+
+.counter-number {
+    display: inline-block;
+    line-height: 16px;
+    background: black;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.counter {
+    display: inline-block;
+    line-height: 65px;
+    vertical-align: top;
+    font-size: 11px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
 
 .logo-container {
   padding: 0 15px;
@@ -365,9 +393,8 @@ p {
 }
 
 .logo-wrap > a {
-  display: table-cell;
-  vertical-align: middle;
-  height: 80px;
+  display: block;
+  height: 66px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -376,7 +403,9 @@ p {
 }
 
 .logo-wrap.shrink > a {
-  height: 60px;
+  display: block;
+  height: 40px;
+  margin-top: 6px;
 }
 
 .logo-wrap img {
@@ -385,11 +414,11 @@ p {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  height: 66px;
+  height: 100%;
 }
 
 .logo-wrap.shrink img {
-  height: 48px;
+  height: 100%;
 }
 
 .navbar-collapse.in {
@@ -4083,8 +4112,3 @@ p.footer-address {
   padding: 0;
   border: none;
 }
-
-.navbar-nav>li {
-  margin-top: 10px;
-}
-

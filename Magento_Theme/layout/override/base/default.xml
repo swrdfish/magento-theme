@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <block name="require.js" class="Magento\Framework\View\Element\Template" template="Magento_Theme::page/js/require_js.phtml" />
+        <referenceContainer name="after.body.start">
+            <block class="Magento\RequireJs\Block\Html\Head\Config" name="requirejs-config"/>
+            <block class="Magento\Translation\Block\Html\Head\Config" name="translate-config"/>
+            <block class="Magento\Translation\Block\Js" name="translate" template="Magento_Translation::translate.phtml"/>
+            <block class="Magento\Framework\View\Element\Js\Cookie" name="js_cookies" template="Magento_Theme::js/cookie.phtml"/>
+            <block class="Magento\Theme\Block\Html\Notices" name="global_notices" template="html/notices.phtml"/>
+        </referenceContainer>
+        
+        <referenceContainer name="main.content">
+            <block class="Magento\Framework\View\Element\Template" name="skip_to_content.target" before="-" template="Magento_Theme::html/skiptarget.phtml">
+                <arguments>
+                    <argument name="target_id" xsi:type="string">contentarea</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="header.container">
+            <container name="scratch.navbar.wrapper" label="Scratch Navbar wrapper" htmlTag="nav" htmlClass="navbar navbar-fixed-top" before="main.content">
+	            <block class="Binayak\ScratchMod\Block\Html\Navbar" name="scratch.navbar" before="-" template="html/navbar.phtml" ttl="3600">
+	            	<block class="Magento\Checkout\Block\Cart\Sidebar" name="scratch.minicart" as="minicart" template="Magento_Checkout::cart/minicart.phtml">
+	            		<arguments>
+		                    <argument name="jsLayout" xsi:type="array">
+		                        <item name="types" xsi:type="array"/>
+		                        <item name="components" xsi:type="array">
+		                            <item name="minicart_content" xsi:type="array">
+		                                <item name="component" xsi:type="string">Magento_Checkout/js/view/minicart</item>
+		                                <item name="config" xsi:type="array">
+		                                    <item name="template" xsi:type="string">Magento_Checkout/minicart/content</item>
+		                                </item>
+		                                <item name="children" xsi:type="array">
+		                                    <item name="subtotal.container" xsi:type="array">
+		                                        <item name="component" xsi:type="string">uiComponent</item>
+		                                        <item name="config" xsi:type="array">
+		                                            <item name="displayArea" xsi:type="string">subtotalContainer</item>
+		                                        </item>
+		                                        <item name="children" xsi:type="array">
+		                                            <item name="subtotal" xsi:type="array">
+		                                                <item name="component" xsi:type="string">uiComponent</item>
+		                                                <item name="config" xsi:type="array">
+		                                                    <item name="template" xsi:type="string">Magento_Checkout/minicart/subtotal</item>
+		                                                </item>
+		                                            </item>
+		                                        </item>
+		                                    </item>
+		                                    <item name="extra_info" xsi:type="array">
+		                                        <item name="component" xsi:type="string">uiComponent</item>
+		                                        <item name="config" xsi:type="array">
+		                                            <item name="displayArea" xsi:type="string">extraInfo</item>
+		                                        </item>
+		                                    </item>
+		                                    <item name="promotion" xsi:type="array">
+		                                        <item name="component" xsi:type="string">uiComponent</item>
+		                                        <item name="config" xsi:type="array">
+		                                            <item name="displayArea" xsi:type="string">promotion</item>
+		                                        </item>
+		                                    </item>
+		                                </item>
+		                            </item>
+		                        </item>
+		                    </argument>
+		                </arguments>
+
+	            	</block>
+		        </block>
+	        </container>
+        </referenceContainer>
+
+        <referenceContainer name="columns.top">
+            <block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="html/title.phtml"/>
+            <container name="page.messages" htmlTag="div" htmlClass="page messages">
+                <block class="Magento\Framework\View\Element\Template" name="ajax.message.placeholder" template="Magento_Theme::html/messages.phtml"/>
+                <block class="Magento\Framework\View\Element\Messages" name="messages" as="messages" template="Magento_Theme::messages.phtml"/>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="main">
+            <container name="content.top" label="Main Content Top"/>
+            <container name="content" label="Main Content Area"/>
+            <container name="content.aside" label="Main Content Aside"/>
+            <container name="content.bottom" label="Main Content Bottom"/>
+        </referenceContainer>
+        <referenceContainer name="page.bottom.container">
+            <container name="page.bottom" label="Before Page Footer" htmlTag="div" htmlClass="content"/>
+        </referenceContainer>
+        <referenceContainer name="footer-container">
+            <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer content">
+                <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" template="switch/stores.phtml"/>
+                <block class="Magento\Framework\View\Element\Html\Links" name="footer_links">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">footer links</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>
+                <block class="Magento\Framework\View\Element\Template" name="report.bugs" template="Magento_Theme::html/bugreport.phtml" />
+            </container>
+        </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Theme\Block\Html\Footer" name="absolute_footer" template="html/absolute_footer.phtml" />
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\FormKey" name="formkey"/>
+        </referenceContainer>
+    </body>
+</page>

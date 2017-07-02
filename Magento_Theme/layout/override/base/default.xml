@@ -5,7 +5,7 @@
  * See COPYING.txt for license details.
  */
 -->
-<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page layout="1columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="default_head_blocks"/>
     <body>
         <block name="require.js" class="Magento\Framework\View\Element\Template" template="Magento_Theme::page/js/require_js.phtml" />
@@ -17,16 +17,9 @@
             <block class="Magento\Theme\Block\Html\Notices" name="global_notices" template="html/notices.phtml"/>
         </referenceContainer>
         
-        <referenceContainer name="main.content">
-            <block class="Magento\Framework\View\Element\Template" name="skip_to_content.target" before="-" template="Magento_Theme::html/skiptarget.phtml">
-                <arguments>
-                    <argument name="target_id" xsi:type="string">contentarea</argument>
-                </arguments>
-            </block>
-        </referenceContainer>
         <referenceContainer name="header.container">
-            <container name="scratch.navbar.wrapper" label="Scratch Navbar wrapper" htmlTag="nav" htmlClass="navbar navbar-fixed-top" before="main.content">
-	            <block class="Binayak\ScratchMod\Block\Html\Navbar" name="scratch.navbar" before="-" template="html/navbar.phtml" ttl="3600">
+            <container name="scratch.navbar.wrapper" label="Scratch Navbar wrapper">
+	            <block class="Binayak\ScratchMod\Block\Html\Navbar" name="scratch.navbar" template="html/navbar.phtml" ttl="3600">
 	            	<block class="Magento\Checkout\Block\Cart\Sidebar" name="scratch.minicart" as="minicart" template="Magento_Checkout::cart/minicart.phtml">
 	            		<arguments>
 		                    <argument name="jsLayout" xsi:type="array">
@@ -71,6 +64,25 @@
 		                </arguments>
 
 	            	</block>
+                    <block class="Magento\Customer\Block\Account\Customer" name="scratch.customer" as="customer-menu" template="Binayak_ScratchMod::html/customer.phtml">
+                            <block class="Magento\Customer\Block\Account\Link" name="my-account-link" as="customer-menu-account">
+                                <arguments>
+                                    <argument name="label" xsi:type="string" translate="true">My Account</argument>
+                                </arguments>
+                            </block>
+                            <block class="Magento\Wishlist\Block\Link" name="my-wishlist" as="customer-menu-wishlist">
+                                <arguments>
+                                    <argument name="label" xsi:type="string" >My Wishlist</argument>
+                                </arguments>
+                            </block>
+                            <block class="Magento\Customer\Block\Account\RegisterLink" name="register-link" as="customer-menu-register">
+                                <arguments>
+                                    <argument name="label" xsi:type="string" translate="true">Create an Account</argument>
+                                </arguments>
+                            </block>
+                            <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link" as="customer-menu-auth"
+                                   template="account/link/authorization.phtml"/>
+                    </block>
 		        </block>
 	        </container>
         </referenceContainer>

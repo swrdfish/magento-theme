@@ -10,7 +10,6 @@ gulp.task('cssmin', function() {
 	var DEST = '../';
  	return gulp.src([
 		"bootstrap.min.css",
-		"magnific-popup.css",
 		"fonts.css",
 		"style.css",
 		"responsive.css",

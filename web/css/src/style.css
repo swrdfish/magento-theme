@@ -302,7 +302,7 @@ p {
   padding: 0 5%;
 }
 
-.navigation-overlay.sticky {
+.navigation-overlay.sticky, .navigation-overlay.black  {
   background-color: #111111;
   visibility: visible;
   opacity: 1;
@@ -325,6 +325,10 @@ p {
 .nav-wrap {
   width: auto;
   float: right;
+}
+
+.navmargin {
+  height: 80px;
 }
 
 .menu-socials {

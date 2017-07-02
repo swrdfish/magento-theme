@@ -3,41 +3,43 @@
 // @codingStandardsIgnoreFile
 
 ?>
-<a href="#" class="customer-menu-toggle">
-    <i class="fa fa-user"></i>
-</a>
+<div data-block="customer-menu" class="customer-wrapper">
+    <a href="#" class="customer-menu-toggle">
+        <i class="fa fa-user"></i>
+    </a>
 
-<script type="text/x-magento-init">
-    {
-        "*": {
-            "Magento_Ui/js/core/app": {
-                "components": {
-                    "customer": {
-                        "component": "Magento_Customer/js/view/customer"
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
                     }
                 }
             }
         }
-    }
-</script>
+    </script>
 
-<ul class="customer-menu"
-    data-role="dropdownDialog"
-    data-mage-init='{"dropdownDialog":{
-                "triggerTarget":".customer-menu-toggle",
-                "timeout": "2000",
-                "closeOnMouseLeave": false,
-                "closeOnEscape": true,
-                "triggerClass":"active",
-                "parentClass":"active",
-                "buttons":[]}}'>
-    <?php
-        if($block->customerLoggedIn()){
-            echo $block->getChildHtml('customer-menu-account');
-            echo $block->getChildHtml('customer-menu-wishlist');
-        }
-        echo $block->getChildHtml('customer-menu-register');
-        echo $block->getChildHtml('customer-menu-auth');
-    ?>
-</ul>
-
+    <ul class="customer-menu"
+        data-role="dropdownDialog"
+        data-mage-init='{"dropdownDialog":{
+                    "appendTo":"[data-block=customer-menu]",
+                    "triggerTarget":".customer-menu-toggle",
+                    "timeout": "2000",
+                    "closeOnMouseLeave": false,
+                    "closeOnEscape": true,
+                    "triggerClass":"active",
+                    "parentClass":"active",
+                    "buttons":[]}}'>
+        <?php
+            if($block->customerLoggedIn()){
+                echo $block->getChildHtml('customer-menu-account');
+                echo $block->getChildHtml('customer-menu-wishlist');
+            }
+            echo $block->getChildHtml('customer-menu-register');
+            echo $block->getChildHtml('customer-menu-auth');
+        ?>
+    </ul>
+</div>

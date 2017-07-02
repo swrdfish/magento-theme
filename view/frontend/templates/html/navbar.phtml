@@ -8,60 +8,66 @@
 
 <?php $_menu = $block->getHtml() ?>
 
-<div class="navigation-overlay">
-  <div class="container-fluid relative">
-    <div class="row">
 
-      <div class="navbar-header">
-        <div class="navbar-toggle-wrapper">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>        
-        </div>
+<nav class="navbar navbar-fixed-top">
+    <div class="navigation-overlay <?php if(!$block->isHomePage()): ?>black<?php endif;?>">
+        <div class="container-fluid relative">
+            <div class="row">
 
-        <!-- Logo -->
-        <div class="logo-container">
-          <div class="logo-wrap local-scroll">
+                <div class="navbar-header">
+                    <div class="navbar-toggle-wrapper">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
 
-            <?php if ($block->isHomePage()):?>
-                <a class="logo" href="#" title="Aadikara" >
-            <?php else: ?>
-                <a class="logo" href="<?php echo $block->getUrl(''); ?>" title="Aadikara">
-            <?php endif ?>
-                    <img src="<?php /* @escapeNotVerified */ echo $block->getLogoSrc() ?>"
-                         alt="Aadikara"
-                    />
-                </a>
-          </div>
-        </div>
-      </div> <!-- end navbar-header -->
+                    <!-- Logo -->
+                    <div class="logo-container">
+                        <div class="logo-wrap">
+                            <?php if ($block->isHomePage()):?>
+                            <a class="logo" href="#" title="Aadikara" >
+                            <?php else: ?>
+                            <a class="logo" href="<?php echo $block->getUrl(''); ?>" title="Aadikara">
+                            <?php endif ?>
+                                <img src="<?php /* @escapeNotVerified */ echo $block->getLogoSrc() ?>"
+                                     alt="Aadikara"
+                                />
+                            </a>
+                        </div>
+                    </div>
+                </div> <!-- end navbar-header -->
 
-      <div class="menu-socials">
-        <ul>
-          <li>
-            <?php echo $block->getChildHtml('customer-menu'); ?>
-          </li>
-          <li>
-            <?php echo $block->getChildHtml('minicart'); ?>
-          </li>
-        </ul>
-      </div>
+                <div class="menu-socials">
+                    <ul>
+                        <li>
+                            <?php echo $block->getChildHtml('customer-menu'); ?>
+                        </li>
+                        <li>
+                            <?php echo $block->getChildHtml('minicart'); ?>
+                        </li>
+                    </ul>
+                </div>
 
-      <div class="col-md-8 col-xs-12 nav-wrap">
-        <div class="collapse navbar-collapse text-center" id="navbar-collapse">
+                <div class="col-md-8 col-xs-12 nav-wrap">
+                    <div class="collapse navbar-collapse text-center" id="navbar-collapse">
 
-          <ul class="nav navbar-nav local-scroll text-right">
+                        <ul class="nav navbar-nav local-scroll text-right">
 
-            <?php /* @escapeNotVerified */ echo $_menu; ?>
+                            <?php /* @escapeNotVerified */ echo $_menu; ?>
 
-          </ul>
-        </div>
-      </div> <!-- end col -->
+                        </ul>
+                    </div>
+                </div> <!-- end col -->
 
 
-    </div> <!-- end row -->
-  </div> <!-- end container -->
-</div> <!-- end navigation -->
+            </div> <!-- end row -->
+        </div> <!-- end container -->
+    </div> <!-- end navigation -->
+</nav>
+
+<?php if(!$block->isHomePage()): ?>
+    <div class="navmargin"></div>
+<?php endif;?>

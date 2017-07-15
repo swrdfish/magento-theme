@@ -11,11 +11,11 @@ gulp.task('cssmin', function() {
  	return gulp.src([
 		"bootstrap.min.css",
 		"fonts.css",
-		"style.css",
 		"responsive.css",
-		"spacings.css",
-		"animate.css"
-  	])
+        "spacings.css",
+        "animate.css",
+        "style.css"
+    ])
     .pipe(concat('main.css'), {newLine: '\n\n\n\n\n\n\n\n'})
     .pipe(rename('main.min.css'))
     .pipe(csso({comments: 'none'}))

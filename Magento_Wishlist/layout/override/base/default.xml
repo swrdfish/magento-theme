@@ -13,8 +13,5 @@
         <referenceBlock name="scratch.customer">
             <block class="Magento\Wishlist\Block\Link" name="wish-list-link" after="my-account-link"/>
         </referenceBlock>
-        <referenceContainer name="sidebar.additional">
-            <block class="Magento\Wishlist\Block\Customer\Sidebar" name="wishlist_sidebar" as="wishlist" template="Magento_Wishlist::sidebar.phtml"/>
-        </referenceContainer>
     </body>
 </page>

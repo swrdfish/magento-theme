@@ -340,10 +340,10 @@ class Navbar extends Template implements IdentityInterface
      *
      * @return string
      */
-    public function getLogoSrc()
+    public function getLogoSrc($black)
     {
         if (empty($this->_data['logo_src'])) {
-            $this->_data['logo_src'] = $this->_getLogoUrl();
+            $this->_data['logo_src'] = $this->_getLogoUrl($black);
         }
         return $this->_data['logo_src'];
     }
@@ -354,7 +354,7 @@ class Navbar extends Template implements IdentityInterface
      *
      * @return string
      */
-    protected function _getLogoUrl()
+    protected function _getLogoUrl($black)
     {
         $folderName = \Magento\Config\Model\Config\Backend\Image\Logo::UPLOAD_DIR;
         $storeLogoPath = $this->_scopeConfig->getValue(
@@ -370,7 +370,12 @@ class Navbar extends Template implements IdentityInterface
         } elseif ($this->getLogoFile()) {
             $url = $this->getViewFileUrl($this->getLogoFile());
         } else {
-            $url = $this->getViewFileUrl('images/logo.svg');
+            if($black == 'black'){
+                $url = $this->getViewFileUrl('images/logo_black.svg');
+            }
+            else {
+                $url = $this->getViewFileUrl('images/logo.svg');
+            }
         }
         return $url;
     }

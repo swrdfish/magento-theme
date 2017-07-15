@@ -11,7 +11,7 @@
 
 <nav class="navbar navbar-fixed-top">
     <div class="navigation-overlay <?php if(!$block->isHomePage()): ?>black<?php endif;?>">
-        <div class="container-fluid relative">
+        <div class="container relative">
             <div class="row">
 
                 <div class="navbar-header">
@@ -32,7 +32,13 @@
                             <?php else: ?>
                             <a class="logo" href="<?php echo $block->getUrl(''); ?>" title="Aadikara">
                             <?php endif ?>
-                                <img src="<?php /* @escapeNotVerified */ echo $block->getLogoSrc() ?>"
+                                <img src="<?php
+                                    if($block->isHomePage()) {
+                                        echo $block->getLogoSrc('white');
+                                    }
+                                    else {
+                                        echo $block->getLogoSrc('black');
+                                    }?>"
                                      alt="Aadikara"
                                 />
                             </a>

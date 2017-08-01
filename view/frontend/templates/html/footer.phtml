@@ -1,13 +1,20 @@
 <?php
 /**
- * Navbar for store
- *
- * @var $block \Binayak\ScratchMod\Block\Html\Navbar
+ * Footer for store
  */
+$mediaUrl = $block->getViewFileUrl('images/onlylogo.png');
 ?>
 
-
-<div class="footer-logo">
-    Hello.
-    <?php echo $block->getChildHtml('footer_links'); ?>
+<div class="row" >
+    <div class="footer-categories col-md-3">
+        <h6 class="footer-heading">Collections</h6>
+        <?php echo $block->getChildHtml('footer_categories'); ?>
+    </div>
+    <div class="footer-links col-md-3">
+        <h6 class="footer-heading">Pages</h6>
+        <?php echo $block->getChildHtml('footer_links'); ?>
+    </div>
+    <div class="footer-logo-wrapper col-md-6">
+        <img src="<?php echo $mediaUrl?>" class="footer-logo">
+    </div>
 </div>

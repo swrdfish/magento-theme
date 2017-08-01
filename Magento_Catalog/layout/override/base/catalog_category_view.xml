@@ -2,8 +2,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 <body>
     <referenceContainer name="columns.top">
-        <container name="category.view.container" htmlTag="div" htmlClass="category-view" after="-">
-            <block class="Magento\Catalog\Block\Category\View" name="category.image" template="Magento_Catalog::category/image.phtml"/>
+        <container name="category.view.container" htmlTag="div" htmlClass="category-view" before="-">
+            <block class="Magento\Catalog\Block\Category\View" name="category.image" template="Binayak_ScratchMod::html/categoryimage.phtml"/>
             <block class="Magento\Catalog\Block\Category\View" name="category.description" template="Magento_Catalog::category/description.phtml"/>
             <block class="Magento\Catalog\Block\Category\View" name="category.cms" template="Magento_Catalog::category/cms.phtml"/>
         </container>
@@ -86,6 +86,5 @@
         </arguments>
         <block class="Magento\Catalog\Block\Category\Rss\Link" name="rss.link" template="Magento_Catalog::category/rss.phtml"/>
     </referenceBlock>
-    <referenceContainer name="bannerslider.menu.top" remove="true"></referenceContainer>
 </body>
 </page>

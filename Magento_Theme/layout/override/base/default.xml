@@ -106,6 +106,7 @@
         <referenceContainer name="footer-container">
             <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer content container">
                 <block class="Magento\Framework\View\Element\Template" name="footer-content" template="Binayak_ScratchMod::html/footer.phtml">
+                    <block class="Binayak\ScratchMod\Block\Html\Navbar" name="footer_categories" template="html/footer_categories.phtml" ttl="3600"></block>
                     <block class="Magento\Framework\View\Element\Html\Links" name="footer_links">
                         <arguments>
                             <argument name="css_class" xsi:type="string">footer links</argument>
